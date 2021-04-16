@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url('/img/Background.png') no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: 'Courier New', Courier, monospace;  
+}
+
+h1{
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#movie_Container{
+    background-color: rgba(255,255,255,0.6);
+    width: 40vw; 
+    float:left; 
+    height:80vh;
+    border-radius: 10px;
+    margin:10px;
+    padding: 10px;
+    font-size: x-large;
+    overflow-y: scroll;
+}
+
+#movie_name{
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#movie_info,#duration,#released,#movie_actors,#movie_genre,#movie_plot{
+    padding: 5px;
+    padding-bottom: 7px;
+}
+
+#movie_actors{
+    border-bottom: 4px solid rgba(15, 15, 13, 0.6);
+}
+
+#image{
+    width: 40vw;
+    float:left;
+    height:82.40vh; 
+    border-radius: 10px;
+    margin:10px;
+    background:no-repeat;
+    background-size: cover;
+}
+[contentEditable=false]:empty:not(:focus):before{
+    content:attr(data-text)
+}
+#image2{
+    width: 40vw;
+    float:left;
+    height:82.40vh; 
+    border-radius: 10px;
+    margin:10px;
+    background:url('https://m.media-amazon.com/images/M/MV5BMTQ2OTE1Mjk0N15BMl5BanBnXkFtZTcwODE3MDAwNA@@._V1_SX300.jpg') no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

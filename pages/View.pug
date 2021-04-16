@@ -1,0 +1,42 @@
+doctype html
+head
+  title Viewpeople_page
+  link(rel='stylesheet' href='/css/style.css')
+br
+.topBar
+  img(src='img/logo.jpg' alt='ilovem icion' width='150' height='80')
+  hr
+  a.home(href='http://localhost:3000') Home
+  if session.loggedin
+    a(href='/profile') Profile
+  .searchBar
+    if session.loggedin
+      form(method="post" action="/people")
+        label(for='peoName')
+        input#movName(type='text' placeholder='Search full name' name = 'peoName')
+        button#search(type='submit') Search people
+    else
+      form(method="post" action="/people")
+        label(for='peoName')
+        input#movName(type='text' placeholder='Search full name' name = 'peoName')
+        button#search.btn(type='submit') Search People
+        button#sign(onclick = "window.location.href= 'http://localhost:3000/signin'" type='button') Sign in
+hr
+.col
+.midcol
+  .row
+    h2  Name of Person: #{name}
+    p Discription of the person, ....
+    h3 Known For
+    for mov in movie
+      ul
+        a(href='/movies/' +mov.Title)  #{mov.Title}
+        p #{mov.year}
+  .row
+    h3  Collaborators
+    for name in writerName
+      a(href='/people/' +name style='text-decoration:none;color:black;')  #{name}  
+      br
+  form(method="post" action= '/subscribe/' + name)
+    button#subscribe(type='submit') subscribe
+.col

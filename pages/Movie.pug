@@ -1,0 +1,82 @@
+doctype html
+head
+  link(rel='stylesheet' href='/css/style.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/css/style3.css')
+br
+.topBar
+  img(src='img/logo.jpg' alt='ilovem icion' width='150' height='80')
+  hr
+  a.home(href='/') Home
+  if session.loggedin
+    a.home(href='/profile') Profile
+  .searchBar
+    form(method="post" action="/movies")
+      label(for='movName')
+      input#movName(type='text' placeholder='Search Movie' name = 'movName')
+      button(type='submit')
+        i.fa.fa-search
+
+hr
+.title
+  h2 #{movie[0].Title}
+  p(style='font-size: small;') #[strong Year Of Release:] #{movie[0].Released} || #[strong Runtime:]#{movie[0].Runtime}
+.row
+  .column
+    img(src=  link ,alt= " poster Picture")
+    br
+    br
+
+    p #[strong Plot:] #{movie[0].Plot}
+    p #[strong Director:]
+    //for other in othername
+      p #{other}
+    li
+      a(href='http://localhost:3000/people/' + otherName[0]) #{otherName[0]}
+    br
+    p #[strong Writers:]
+    for name in writerName
+      li
+        a(href='http://localhost:3000/people/' + name) #{name}
+    br
+    p #[strong Actors:]
+    for name in actorName
+      li
+        a(href='http://localhost:3000/people/' + name) #{name}
+    br
+    p #[strong Awards:] #{movie[0].Awards}
+    p #[strong Genres:] #{movie[0].Genre}
+    form(method="post" action= '/movies/' + movName)
+      button.btn(type='submit')  Add to Watchlist
+
+.row
+  .column
+    h2(style='font-size: medium;') User Reivews
+    if session.hasReview
+      .movieimg(style='height:200px;') Review
+        each rev in session.user.reviews
+          p users: #{rev.username}
+          p review: #{rev.review}
+          hr
+    else
+      .movieimg(style='height:200px;') Review
+
+.row
+  .column
+    h2(style='font-size: medium;') Write a Review:
+    form(method="post" action='/reviewmovie/' + movName)
+      .movieimg(style='height:200px;')
+        label(for='moviewreview')
+        textarea(id="moviereview" name="moviereview" rows="9" cols="130")
+        br
+        button.btn(type='submit') Submit
+
+.row
+  .column
+    h2(style='font-size: medium;') Similar movies
+    .mid-content
+      for mov in recMovie
+        .img
+          a(href= 'http://localhost:3000/movies/' + mov.Title)
+            img(src=  mov.Poster ,alt= " poster Picture" width='300' height = '450' style='border-radius:10px;float:left;text-align: center;')
+            //P #{mov.Title}

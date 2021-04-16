@@ -1,0 +1,54 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('/img/Background.png');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+.sidebar {
+    width: 180px;
+    position: absolute;
+    background-color:white;
+    overflow-x: hidden;
+    padding: 16px 2px 0px 0px;
+}
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color:rgb(179, 136, 136);
+    display: block;
+}
+.sidebar a:hover {
+    color:dodgerblue;
+}
+.main {
+    margin-left: 180px;
+    padding: 0px 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.column {
+    background-color: aliceblue;
+    padding: 30px;
+    margin-top: 20px;
+}
+.review {
+    background-color:lightgrey;
+    width: 98%;
+    padding: 20px;
+}
+.btn {
+    background-color: dodgerblue;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+}

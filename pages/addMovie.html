@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../public/css/style_dyna.css">
+    <link rel="stylesheet" href="../public/css/style_editor.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <title>The Movie Page</title>
+</head>
+<body>
+    <!--NavBar-->
+    <header>
+        <nav>
+            <ul class="nav_links">
+                <a href="/"><li id="link">Search</li></a>                
+            </ul>
+        </nav>    
+    </header>
+
+    <!--The add movie stuff which allows the user to throw in his opinions-->
+    <div>
+        <!--Movie info-->
+        <div id="movie_Container">
+            <!--Maybe create a form-->
+            <div id="reviews" style="height: 40%;width: 100%; padding-top: 5px;">
+                <input type="text"  id="name" placeholder="Enter name of the movie" style=" height: 10%; width: 30%; margin-top: 5px;">                
+                <input type="text"  id="plot" placeholder="Enter plot of the movie" style=" height: 20%; width: 99%; margin-top: 5px;">
+                <input type="text"  id="actor" placeholder="Enter actors" style=" height: 20%; width: 99%; margin-top: 5px;">
+                <input type="text"  id="genre" placeholder="Enter genre of the movie" style=" height: 20%; width: 99%; margin-top: 5px;">
+                <input type="text"  id="duration" placeholder="Enter duration" style=" height: 20%; width: 99%; margin-top: 5px;">
+                <input type="text"  id="year_release" placeholder="Enter year of release" style=" height: 20%; width: 99%; margin-top: 5px;">
+                <input type="text"  id="poster" placeholder="Enter poster link" style=" height: 20%; width: 99%; margin-top: 5px;">
+                <button type="button" id="submit_rev" onclick="submit()" style="float: right; border-radius: 10px; height: 40px; width: 100px; outline: none;" >Add Movie</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

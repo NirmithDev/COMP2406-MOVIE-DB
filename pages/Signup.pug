@@ -1,0 +1,22 @@
+doctype html
+head
+  link(rel='stylesheet' href='/css/style.css')
+  link(rel='stylesheet' href='/css/style2.css')
+
+.topBar
+  img(src='img/logo.jpg' alt='ilovem icion' width='150' height='80')
+  hr
+  a.home(href='http://localhost:3000') Home
+
+.containerR
+  h1 Create account
+  form(method="POST" action="/signUpUser")
+    label(for='username')
+      b Username
+    input(type='text' placeholder='Username' name='username' required)
+    label(for='password')
+      b Password
+    input(type='password' placeholder='Password' name='password' required)
+    button.btn(type='submit') Create your new account
+br
+br

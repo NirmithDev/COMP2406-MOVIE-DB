@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background: url('/img/Background.png') no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#link, #movie_home{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    color: rgba(255,255,255,0.2);
+    text-decoration: none;
+}
+header{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 10%;
+}
+.nav_links{
+    list-style: none;
+}
+.nav_links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+.nav_links a #link, #movie_home {
+    transition: all 0.3s ease 0s;
+}
+.nav_links a #link:hover,#movie_home:hover{
+    color: rgba(255,255,255,1);
+}

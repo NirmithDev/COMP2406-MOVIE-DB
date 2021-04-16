@@ -1,0 +1,43 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='/css/style_dyna.css')
+  link(rel='stylesheet' href='css/style_editor.css')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap' rel='stylesheet')
+  title The Movie Page
+// NavBar
+header
+  nav
+    ul.nav_links
+      a(href='/')
+        li#link Search
+// The add movie stuff which allows the user to throw in his opinions
+div
+  // Movie info
+  #movie_Container
+    // Maybe create a form
+    #reviews(style='height: 80%;width: 100%; padding-top: 5px;')
+        form(method="post" action="/addmovies")
+            //placeholder='Enter name of the movie' 
+            input#names(type='text' name='names' placeholder='Enter name of the movie' style=' height: 30%; width: 30%; margin-top: 5px;')
+            //placeholder='Enter plot of the movie'
+            input#plot(type='text' name='plot' placeholder='Enter plot of the movie' style=' height: 40%; width: 99%; margin-top: 5px;')
+            //placeholder='Enter actors'
+            input#actor(type='text' name='actor' placeholder='Enter actors' style=' height: 40%; width: 99%; margin-top: 5px;')
+            //Director
+            input#director(type='text' name='director' placeholder='Director Name' style=' height: 40%; width: 99%; margin-top: 5px;')
+            //writer
+            input#writer(type='text' name='writer' placeholder='Writer Names' style=' height: 40%; width: 99%; margin-top: 5px;')
+            //placeholder='Enter genre of the movie'
+            input#genre(type='text' name='genre' placeholder='Enter genre of the movie' style=' height: 40%; width: 99%; margin-top: 5px;')
+            //placeholder='Enter duration'
+            input#duration(type='text' name='duration' placeholder='Enter duration' style=' height: 40%; width: 99%; margin-top: 5px;')
+            //placeholder='Enter year of release'
+            input#year_release(type='text' name='yearRel' placeholder='Enter release date' style=' height: 40%; width: 99%; margin-top: 5px;')
+            //poster link
+            input#poster(type='text' name='post' placeholder='POSTER LINKS' style=' height: 40%; width: 99%; margin-top: 5px;')
+            
+            
+            
+            button#submit_rev(type='submit' style='float: right; border-radius: 10px; height: 40px; width: 100px; outline: none;') Add Movie

@@ -1,0 +1,46 @@
+doctype html
+head
+  title Homepage
+  link(rel='stylesheet', href='css/style.css')
+
+.topBar
+  img(src='img/logo.jpg' alt='ilovem icion' width='150' height='80')
+  hr
+  a.home(href='/') Home
+  if session.loggedin
+    a.home(href='/profile') Profile
+  .searchBar
+    if session.loggedin
+      form(method="post" action="/movies")
+        label(for='movName')
+        input#movName(type='text' placeholder='Search Movie' name = 'movName')
+        button#search(type='submit') Search EXACT Movie Name
+    else
+      form(method="post" action="/movies")
+        label(for='movName')
+        input#movName(type='text' placeholder='Search Movie' name = 'movName')
+        button#search.btn(type='submit') Search
+        button#sign(onclick = "window.location.href= '/signin'" type='button') Sign in
+#movieInfo.mid-content
+  //h2 What to Watch
+  if session.loggedin 
+    h3 YOUR RECOMMENDATIONS ARE
+  else
+    h3 Would highly recommend
+.mid-content
+  for a in movie
+    .description
+      a(href='/movies/'+a.Title style="text-decoration:none;color:blue;font-size:25px;font-weight:Large;") #{a.Title}
+      a(href='/movies/'+a.Title)
+        img(src=  a.Poster ,alt= " poster Picture" width='300' height = '400')
+br
+//we will load all the movies by default at first then by search we will make the recommendation smaller so easier to use
+//here will give all the movies and thier pfp
+h3(style='padding:10px 10px 10px 10px;color:white;') ALL THE MOVIES
+.movie_all
+  for a in mov
+    .description
+      a(href='/movies/'+a.Title style="text-decoration:none;color:blue;font-size:25px;font-weight:Large;") #{a.Title}
+      a(href='/movies/'+a.Title)
+        img(src=  a.Poster ,alt= " poster Picture" width='300' height = '450' style="border-radius:10px")
+

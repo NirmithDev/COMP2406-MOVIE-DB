@@ -1,0 +1,29 @@
+[{"username":"Soph",
+    "password":"12345",
+    "accountLevel":["contributing"],
+    "reviews":[{"movName":"Untraceable 4", 
+    "review":"This is just bad bad "}],
+    "following":[],
+    "likedMovie":[],
+    "followOther":[],
+    "contributingHist":[]
+},
+{"username":"Jackie",
+    "password":"12345",
+    "accountLevel":["regular"],
+    "reviews":[{"movName":"Meatballs 4", "review":"Expected meatballs but it is okay"}],
+    "following":[],
+    "likedMovie":[],
+    "followOther":[],
+    "contributingHist":[]
+},
+{"username":"Sean",
+    "password":"12345",
+    "accountLevel":["contributing"],
+    "reviews":[{"movName":"Minions", "review":"They do be neat"}],
+    "following":[],
+    "likedMovie":[],
+    "followOther":[],
+    "contributingHist":[]
+}
+]

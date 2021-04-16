@@ -1,0 +1,43 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-image: url('/img/Background.png');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+img{
+    background-color: aliceblue;
+}
+.rate {
+    text-align: right;
+}
+.btn {
+    border: none;
+    color: black;
+    background-color: lightcyan;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.title {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    background:lightcyan;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.column {
+    background-color: aliceblue;
+    padding: 30px;
+    margin-top: 20px;
+}
+.movieimg {
+    background-color:lightgrey;
+    width: 98%;
+    padding: 20px;
+}

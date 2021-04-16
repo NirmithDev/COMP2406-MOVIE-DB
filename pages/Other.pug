@@ -1,0 +1,59 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/css/style3.css')
+  
+//img(src='img/logo.jpg' alt='ilovem icion' width='172' height='80')
+.sidebar
+  a(href='/' style='background-color: white;color: black;border: 2px solid black;border-radius: 10px;padding: 10px;text-decoration: none;')
+    i.fa.fa-fw.fa-home
+    | Home
+  a(href='/profile' style='background-color: white;color: black;border: 2px solid black;border-radius: 10px;padding: 10px;text-decoration: none;')
+    | Profile
+.main
+  h1 Account overview
+  button.btn(type='submit') Follow
+  br
+  br
+  p(style='color:white') Username:#{name}
+  hr
+  br
+  br
+  .row
+    .column
+      p(style='color:dodgerblue') Movie Reviews
+      .review
+        for b in res.reviews
+          a(href='/movies/' + b.movName style="color:black") #{b.movName}
+          p #{b.review}
+          hr
+        //hr
+  .row
+    .column
+      p(style='color:dodgerblue') Following Actors/Directors/Writers
+      .review
+        a(href='#People') People:
+        for o in res.following
+           a(href='/people/' + o style="color:black") #{o}
+           br
+  //people they follow
+  .row
+    .column
+      p(style='color:dodgerblue') Following People/ Viewed Users
+      .review
+        a(href='#People') People:
+        br
+        for o in res.followOther
+           a(href='/other/' + o style="color:black") #{o}
+           br
+  //users watch later history
+  .row
+    .column
+      p(style='color:dodgerblue') Watch History
+      .review
+        a(href='#People') Movie: 
+        br
+        for mov in res.contributingHist
+           a(href='/movies/' + mov) #{mov}
+           br

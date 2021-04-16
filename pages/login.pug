@@ -1,0 +1,28 @@
+doctype html
+head
+  link(rel='stylesheet' href='/css/style.css')
+  link(rel='stylesheet' href='/css/style2.css')
+
+.topBar
+  img(src='img/logo.jpg' alt='ilovem icion' width='150' height='80')
+  hr
+  a.home(href='/') Home
+.containerR
+  h1 Log In to Your Account
+
+  form(method="POST" action="/logInUser")
+    label(for='username')
+      b Username
+    input#username(type='text' placeholder='Username' name='username' required)
+    label(for='password')
+      b Password
+    input#password(type='password' placeholder='Password' name='password' required)
+    button#login.btn(type='submit') LOG IN
+br
+br
+.containerL
+  p
+    strong Don't have an account?
+  br
+  button#signup.btn(type='submit') SIGN UP
+  script(src='login.js')

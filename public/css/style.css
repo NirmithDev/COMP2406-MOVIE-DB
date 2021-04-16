@@ -1,0 +1,186 @@
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+li {
+    float: left;
+    text-decoration: none;
+    padding: 5px;
+    list-style-type: none
+}
+  
+body {
+    background-image: url('/img/Background.png');
+    /*make the image cover the whole bg for easier use otherwise it a mess*/
+   
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+}
+  
+.topBar{
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;  
+}
+  
+.topBar a{
+    /*probably comment most of this out*/
+    font-family: 'Roboto', sans-serif;
+    float: left;
+    display: block;
+    color: black;
+    padding: 12px 14px;
+    font-size: 19px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid aliceblue;  
+}
+.topBar a:hover {
+    color: DodgerBlue;
+    transition-duration: 0.4s;
+    border: 2px solid DodgerBlue;
+}
+  
+.topBar a.home{
+    background-color: white;
+    color: black;
+    border: 2px solid black;  
+    border-radius: 10px;
+}
+.topBar a.home:hover{
+    background-color: DodgerBlue;
+    color: white;
+    transition-duration: 0.4s;
+    border: 2px solid DodgerBlue;
+}
+  
+.topBar .searchBar{
+    float: right;
+}
+  
+.topBar input[type = text]{
+    font-family: 'Roboto', sans-serif;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 10px;
+    font-size: 17px;  
+}  
+.topBar .searchBar button {
+    padding: 6px 10px;
+    margin-top: 7px;
+    margin-right: 10px;
+    background-color: white;
+    color: black;
+    font-size: 17px;
+    border: 2px solid #555555; 
+    border-radius: 10px; 
+}
+  
+.topBar .searchBar button:hover {
+    background-color: DodgerBlue;
+    color: white;
+    transition-duration: 0.4s;
+}
+  
+.side-content{
+    width:12.5%;
+}
+.mid-content{
+    font-family: 'Roboto', sans-serif;
+    float: left;
+    color: black;
+    background-color: Gray;
+    padding: 12px 14px;
+    width: 95.5vw;
+    /*overflow: hidden;*/  
+}
+.mid-content h2{
+    color: aliceblue;
+}
+  
+.mid-content h3{
+    color:white;
+}
+  
+.mid-content p{
+    color:white;
+}
+  
+.mid-content p:hover{
+    text-decoration: underline;
+}
+  
+.mid-content .img{
+      float: left;
+      width: 25%;
+}
+.mid-content .img:hover{
+      filter: brightness(60%);
+}
+  
+.mid-content .description{
+      width:25%;
+      float: left;
+      text-align: center;
+}
+  
+.col{
+    float: left;
+    width: 20%;
+    padding: 12px 14px;
+  
+}
+  
+.midcol{
+    float: left;
+    width: 60%;
+    padding: 12px 14px;
+    background-color: white;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+.midcol .pic{
+    background-color: grey;
+    width:25%;
+    height:218px;
+}
+  
+  
+.midcol button{
+    background-color: tomato;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    width: 160px;
+    transition: all 0.3s;
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+.midcol button:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid tomato;
+}
+
+.movie_all{
+    font-family: 'Roboto', sans-serif;
+    float: left;
+    padding: 22px 14px 10px 20px;
+    width: 95.5vw;
+    height:45vh;
+    overflow-y: scroll;
+}
+.movie_all .description{
+    width:25%;
+    float: left;
+    text-align: center;
+    padding-bottom: 20px;
+}

@@ -1,0 +1,88 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/css/style4.css')
+
+.sidebar
+
+  a(href='/logOut')
+      i.fa.fa-arrow-left
+      |  Log out
+  a(href='/')
+    i.fa.fa-fw.fa-home
+    |  Home
+  if user.accountLevel[0] == 'contributing'
+    //make the add movie file connected here
+    a(href='/add')
+      i.fa.fa-plus-square
+      |  Add Movie
+    //make the add person file connected here
+    
+.main
+  .searchBar
+  if session.loggedin
+    form(method="post" action="/other")
+      label(for='userName')
+      input#movName(type='text' placeholder='Search full name' name = 'userName')
+      button#search(type='submit') Search User
+  h1 Account overview
+  //maybe make a form with a action and do it... it might work
+  form(method="post" action="/upgrade") 
+    button.btn(type='submit')  Upgrade
+  br
+
+  br
+  p(style='color:white;font-weight: bold;font-size: x-large;') #[strong Username:] #{user.username}
+  hr
+  p(style='color:white; font-weight: bold;font-size: x-large;') #[strong Password:] #{user.password}
+  hr
+  p(style='color:white; font-weight: bold;font-size: x-large;') #[strong Account level:] #{user.accountLevel[0]}
+  hr
+  br
+  br
+  .row
+    .column
+      p(style='color:dodgerblue') Movie Reviews
+      .review
+        //if session.hasReview
+        each rev in review
+          | Movie Title:
+          a(href='/movies/' + rev.movName) #{rev.movName}
+          hr
+          p Review:
+           p #{rev.review}
+           hr
+
+  .row
+    .column
+      p(style='color:dodgerblue') Watch Later....
+      .review
+        p Movies:
+        //if session.hasMovies
+        for mov in movName
+          //ul #{mov}
+          a(href='/movies/' + mov) #{mov}
+
+  .row
+    .column
+      p(style='color:dodgerblue') Following
+      .review
+        p Writers / actors / directors that you follow:
+        //if session.hasSubscribe
+        each name in subName
+          ul
+            a(href='/people/' + name) #{name}
+        p Other Users That You Viewed:
+        //if session.hasSubOthers
+        each name in subOtherName
+          ul
+            a(href='/other/' + name) #{name}
+
+  .row
+    .column
+      p(style='color:dodgerblue') Contributing history
+      .review
+        //if session.hasReview
+        if user.accountLevel[0]=="contributing"
+          p YOU ARE A CONTRIBUTING USER
