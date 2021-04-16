@@ -5,17 +5,13 @@ head
   link(rel='stylesheet' href='/css/style3.css')
 br
 .topBar
-  img(src='img/logo.jpg' alt='ilovem icion' width='150' height='80')
   hr
   a.home(href='/') Home
   if session.loggedin
     a.home(href='/profile') Profile
-  .searchBar
-    form(method="post" action="/movies")
-      label(for='movName')
-      input#movName(type='text' placeholder='Search Movie' name = 'movName')
-      button(type='submit')
-        i.fa.fa-search
+    if session.user.accountLevel[0]=="contributing"
+      a.home(href='/add') Add Movie
+
 
 hr
 .title
@@ -47,7 +43,7 @@ hr
     p #[strong Awards:] #{movie[0].Awards}
     p #[strong Genres:] #{movie[0].Genre}
     form(method="post" action= '/movies/' + movName)
-      button.btn(type='submit')  Add to Watchlist
+      button.btn(type='submit' style='background-color:blue; color:white; border-radius:10px')  Add to Watchlist
 
 .row
   .column

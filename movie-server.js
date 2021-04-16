@@ -18,7 +18,6 @@ app.use(session({ secret: 'some secret here'}))
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 
-//user pug functrion to render through the login Page
 const renderLogin = pug.compileFile('pages/login.pug');
 const renderHome = pug.compileFile('pages/Home.pug');
 const renderSignup = pug.compileFile('pages/Signup.pug');
@@ -76,10 +75,10 @@ app.post('/addmovies',addmov);
 
 function addMov(req,re,next){
   
-  console.log("I WAS CLICKED SUCCESSFULLY")
-  console.log(req.session)
+  //console.log("I WAS CLICKED SUCCESSFULLY")
+  //console.log(req.session)
   if(req.session.user.accountLevel[0]=="contributing"){
-    console.log("HE IS")
+    //console.log("HE IS")
     re.status(200).send(renderAdd({}));
   }
   else{
@@ -90,7 +89,7 @@ function addMov(req,re,next){
 function addmov(rep,res,next){
   if(rep.session.loggedin){
     let newMov={Actors:[],Genre:[],Director:[],Writer:[]}
-    console.log("I WAS CLICKED SUCCESSFULLY")
+    //console.log("I WAS CLICKED SUCCESSFULLY")
     //bad naming practice since I am low on time
     a=rep.body.names || " "
     b=rep.body.plot || " "
@@ -245,7 +244,7 @@ function getPeople(req, res, next){
     res.status(200).send(data);
 	});
 }
-
+//to get other users
 function getOther(req, res, next){
   let name = req.params.uid;
 
@@ -255,8 +254,8 @@ function getOther(req, res, next){
   dv.collection("Users").find({username:req.params.uid}).toArray(function(err,result){
     if(err) throw err;
     //console.log(result[0])
-    console.log(req.session)
-    console.log(result[0])
+    //console.log(req.session)
+    //console.log(result[0])
     let data = renderOther({name:name,session:req.session,res:result[0]});
     res.status(200).send(data);
         });
@@ -421,7 +420,7 @@ app.get("/view", function(req, res, next){
 app.get("/login.js", function(req, res, next){
   fs.readFile("login.js", function(err, data){
     if(err){
-      res.status(500).send("Unknown resources");
+      res.status(500).send("Unknown resource");
       return;
     }
       res.status(200).send(data);
@@ -433,7 +432,7 @@ app.get("/login.js", function(req, res, next){
 function logInUser(req, res, next){
   dv.collection("Users").find({"username":req.body.username,"password":req.body.password}).toArray(function(err,result){
     if(err){
-      res.status(500).send("Error Reading Database");
+      res.status(500).send("Error Reading From Database");
       return;
     }
     if(model.authenticateUser(req.body.username, req.body.password)){
@@ -454,7 +453,7 @@ function logInUser(req, res, next){
     
     else if(result.length<1||result==undefined){
       //they did not log in successfully.
-      res.status(401).send("You enter the wrong username or password. Please Try agian");
+      res.status(401).send("You entered the wrong username or password.");
     }
     next();
   });
@@ -466,20 +465,20 @@ function signUpUser(req, res, next){
 
   dv.collection("Users").find({username:newUser.username}).toArray(function(err,result){
     if(err){
-      res.status(500).send("Error Reading Database");
+      res.status(500).send("Error Reading From Database");
       return;
     }
     if(result.length<1||result==undefined){
       let usernew= model.createUser(newUser);
       dv.collection("Users").insertOne(usernew,function(err,result){
         if(err){
-          res.status(500).send("Error Reading Database");
+          res.status(500).send("Error Reading From Database");
           return;
         }
         next();
       });
     }else if(result[0].username===(newUser.username)){
-      res.status(300).send("You already register");
+      res.status(300).send("You are already registered and in the database");
     }
   });
 }
