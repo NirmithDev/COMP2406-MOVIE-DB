@@ -281,7 +281,7 @@ function subscribePeo(req, res,next){
   res.status(200).redirect("/people/" + req.params.pid);
 }
 
-//Purpose : add review to the user profile page and movie page
+// add review to the user profile page and movie page
 function makeReview(req, res, next){
     let movName = req.params.mid;
     let review = {username: req.session.user.username, movName :movName , review: req.body.moviereview}
@@ -489,7 +489,7 @@ function logOut(req, res){
 }
 
 
-//2. get request for the Reading a user (getUser), input the uid to get the user information
+//get request for the Reading a user (getUser), input the uid to get the user information
 app.get("/users/:uid", auth,function(req, res, next){
   let result = model.getUser(req.session.user, req.params.uid);
 
@@ -525,14 +525,14 @@ app.get("/users/:uid", auth,function(req, res, next){
 })
 
 
-//3. Searching for users (searchUsers),
+//Searching for users (searchUsers),
 app.get("/users", function(req, res, next){
 //just here because it is there
 res.status(200).send("OOPS NOTHING IS HERE")
 })
 
 
-//4. Searching for moive (searchMovie),
+// Searching for movie (searchMovie),
 app.post("/SearchMovie", function(req, res, next){
 
   if(req.query.title==undefined){
@@ -545,9 +545,8 @@ app.post("/SearchMovie", function(req, res, next){
 })
 
 
-//5. Searching for People (searchPeople),
+//Searching for People (searchPeople),
 app.get("/SearchPeople", function(req, res, next){
-
   if(req.query.name==undefined){
     req.query.name="";
   }
