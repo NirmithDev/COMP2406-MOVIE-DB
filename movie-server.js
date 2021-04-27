@@ -531,29 +531,6 @@ app.get("/users", function(req, res, next){
 res.status(200).send("OOPS NOTHING IS HERE")
 })
 
-
-// Searching for movie (searchMovie),
-app.post("/SearchMovie", function(req, res, next){
-
-  if(req.query.title==undefined){
-    req.query.title="";
-  }
-  let result =model.searchMovie(req.session.user, req.query.name);
-
-  let data = renderMovie({movie: result});
-  res.status(200).send(data);
-})
-
-
-//Searching for People (searchPeople),
-app.get("/SearchPeople", function(req, res, next){
-  if(req.query.name==undefined){
-    req.query.name="";
-  }
-  let result =model.searchPeople(req.session.user, req.query.name);
-  res.status(200).json(result);
-})
-
 // set up the mongodb server
 mc.connect("mongodb://localhost:27017/", function(err, client) {
   if(err) throw err;
